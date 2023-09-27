@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="background_color">#EEF1FF</color>
+    <color name="inputFields_color">#D2DAFF</color>
+    <color name="button_color">#BEBFFF</color>
+    <color name="elements_color">#B1B2FF</color>
+
+
+    <color name="grey_light">#F0F0F0</color>
+    <color name="maroon">#97365C</color>
+    <color name="medium_purple">#AA89CF</color>
 </resources>
