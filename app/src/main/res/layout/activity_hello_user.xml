@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".HelloUser"
     android:background="@color/elements_color"
-    android:padding="36dp">
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/appName"

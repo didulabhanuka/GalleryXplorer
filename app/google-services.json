@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "418710731080",
+    "project_id": "galleryxplorer",
+    "storage_bucket": "galleryxplorer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418710731080:android:333b08376ee093d932db7d",
+        "android_client_info": {
+          "package_name": "com.example.galleryxplorer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5fvlW1KbxSN9qCo-1QsI97yV18tUpwRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
