@@ -13,8 +13,9 @@
     <string name="login_forgot_pw">Forgot Password?</string>
 
     <string name="login_havent_account">
-        I don\'t have an account <font color="#B1B2FF"><b>Register</b></font>
+        Don\'t have an account ?
     </string>
+    <string name="login_havent_account_register"> <font color="#B1B2FF"><b>Register</b></font> </string>
 
     <string name="register_title">Create an account</string>
     <string name="register_sub_title">
@@ -26,6 +27,7 @@
     <string name="register_confirm_password">Confirm Password</string>
 
     <string name="register_have_account">
-        I already have an account <font color="#00C9B8"><b>Login</b></font>
+        Already have an account?
     </string>
+    <string name="register_login_text"><font color="#00C9B8"><b>Login</b></font></string>
 </resources>

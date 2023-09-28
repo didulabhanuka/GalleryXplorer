@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.google.android.material.textfield.TextInputLayout
@@ -34,6 +35,7 @@ class SignUpPage : AppCompatActivity() {
         val signUpBtn : AppCompatButton = findViewById(R.id.btn_register)
         val passwordLayout : TextInputLayout = findViewById(R.id.til_password)
         val confirmPasswordLayout : TextInputLayout = findViewById(R.id.til_confirm_password)
+        val loginText : TextView = findViewById(R.id.tv_have_account_login)
 
         signUpBtn.setOnClickListener {
             val name = fullName.text.toString()
@@ -83,13 +85,22 @@ class SignUpPage : AppCompatActivity() {
                         Log.d(ContentValues.TAG, "createuserWithEmail:success")
                         val user = auth.currentUser
 
+                        val intent = Intent(this, LoginPage::class.java)
+                        startActivity(intent)
+
                     }else{
                         Log.w(ContentValues.TAG, "createUserWithEmail:failure", it.exception)
+                        Toast.makeText(this, "Something went wrong, Try again", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
-
         }
+        loginText.setOnClickListener {
+            val intent = Intent(this, LoginPage::class.java)
+            startActivity(intent)
+            finish()
+        }
+
 
     }
 }
