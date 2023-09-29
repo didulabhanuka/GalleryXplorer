@@ -30,4 +30,8 @@
         Already have an account?
     </string>
     <string name="register_login_text"><font color="#00C9B8"><b>Login</b></font></string>
+    <string name="item_name">Name</string>
+    <string name="item_price">Price</string>
+    <string name="item_quantity">Quantity</string>
+    <string name="item_description">Description</string>
 </resources>

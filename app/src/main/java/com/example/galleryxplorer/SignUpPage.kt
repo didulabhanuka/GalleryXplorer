@@ -1,5 +1,6 @@
 package com.example.galleryxplorer
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -21,20 +22,21 @@ class SignUpPage : AppCompatActivity() {
     private val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\\\.+[a-z]+"
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up_page)
 
         auth = FirebaseAuth.getInstance()
 
-        val fullName : EditText = findViewById(R.id.et_fullname)
-        val email : EditText = findViewById(R.id.et_email)
-        val contactNumber : EditText = findViewById(R.id.et_contact)
-        val password : EditText = findViewById(R.id.et_password)
-        val confirmPassword : EditText = findViewById(R.id.et_confirm_password)
+        val fullName : EditText = findViewById(R.id.et_item_name)
+        val email : EditText = findViewById(R.id.et_item_price)
+        val contactNumber : EditText = findViewById(R.id.et_item_quantity)
+        val password : EditText = findViewById(R.id.et_item_description)
+        val confirmPassword : EditText = findViewById(R.id.et_signIn_confirm_password)
         val signUpBtn : AppCompatButton = findViewById(R.id.btn_register)
-        val passwordLayout : TextInputLayout = findViewById(R.id.til_password)
-        val confirmPasswordLayout : TextInputLayout = findViewById(R.id.til_confirm_password)
+        val passwordLayout : TextInputLayout = findViewById(R.id.til_item_description)
+        val confirmPasswordLayout : TextInputLayout = findViewById(R.id.til_signIn_confirm_password)
         val loginText : TextView = findViewById(R.id.tv_have_account_login)
 
         signUpBtn.setOnClickListener {
@@ -83,7 +85,6 @@ class SignUpPage : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(mail,pwd).addOnCompleteListener {
                     if(it.isSuccessful){
                         Log.d(ContentValues.TAG, "createuserWithEmail:success")
-                        val user = auth.currentUser
 
                         val intent = Intent(this, LoginPage::class.java)
                         startActivity(intent)

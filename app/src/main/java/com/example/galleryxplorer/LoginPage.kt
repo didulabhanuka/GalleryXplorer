@@ -49,6 +49,9 @@ class LoginPage : AppCompatActivity() {
                         Log.d(ContentValues.TAG, "signInWithEmail:success")
                         Toast.makeText(this, "Authentication Success!", Toast.LENGTH_SHORT).show()
 
+                        val intent = Intent(this, SellerRegistration::class.java)
+                        startActivity(intent)
+
                     }else{
                         Log.w(ContentValues.TAG, "signInWithEmail:failure", it.exception)
                         Toast.makeText(this, "Something went wrong, please try again!", Toast.LENGTH_SHORT).show()
