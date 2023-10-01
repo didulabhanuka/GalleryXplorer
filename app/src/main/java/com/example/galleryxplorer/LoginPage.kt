@@ -11,10 +11,13 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class LoginPage : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private var database = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +51,30 @@ class LoginPage : AppCompatActivity() {
                     if(it.isSuccessful){
                         Log.d(ContentValues.TAG, "signInWithEmail:success")
                         Toast.makeText(this, "Authentication Success!", Toast.LENGTH_SHORT).show()
+
+                        val currentUser = auth.currentUser
+                        val uId = currentUser?.uid
+
+                        if (uId != null) {
+                            val sellersCollection = database.collection("sellers")
+                            sellersCollection.document(uId).get().addOnCompleteListener { sellerTask ->
+                                if (sellerTask.isSuccessful) {
+                                    val sellerDocument = sellerTask.result
+                                    if (sellerDocument.exists()) {
+                                        // User is a seller, direct to seller dashboard
+                                        val intent = Intent()
+                                        startActivity(intent)
+                                    } else {
+                                        // User is not a seller, direct to user dashboard
+                                        val intent = Intent()
+                                        startActivity(intent)
+                                    }
+                                } else {
+                                    Log.e(ContentValues.TAG, "Error checking seller status", sellerTask.exception)
+                                    Toast.makeText(this, "Something went wrong, please try again!", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }
 
                     }else{
                         Log.w(ContentValues.TAG, "signInWithEmail:failure", it.exception)
