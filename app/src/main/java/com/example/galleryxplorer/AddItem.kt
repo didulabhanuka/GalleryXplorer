@@ -5,6 +5,8 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
@@ -16,16 +18,17 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
-import java.lang.ref.Reference
 import java.util.UUID
 
 class AddItem : AppCompatActivity() {
 
-    private lateinit var itemCategory: EditText
+    private lateinit var itemCategory: AutoCompleteTextView
     private lateinit var itemName: EditText
+    private lateinit var itemMedium: EditText
+    private lateinit var itemSubject: EditText
+    private lateinit var itemYear: EditText
+    private lateinit var itemSize: EditText
     private lateinit var itemPrice: EditText
-    private lateinit var itemQty: EditText
-    private lateinit var itemDesc: EditText
     private lateinit var itemPhoto1 : ImageView
     private lateinit var itemPhoto2 : ImageView
     private lateinit var itemPhoto3 : ImageView
@@ -35,7 +38,6 @@ class AddItem : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var storageReference: FirebaseStorage
 
-//    private val PICK_IMAGE_REQUEST_CODE = 123
     private var selectedImageUri1: Uri? = null
     private var selectedImageUri2: Uri? = null
     private var selectedImageUri3: Uri? = null
@@ -47,9 +49,11 @@ class AddItem : AppCompatActivity() {
 
         itemCategory = findViewById(R.id.et_item_category)
         itemName = findViewById(R.id.et_item_name)
+        itemMedium = findViewById(R.id.et_item_medium)
+        itemSubject = findViewById(R.id.et_item_subject)
+        itemYear = findViewById(R.id.et_item_year)
+        itemSize = findViewById(R.id.et_item_size)
         itemPrice = findViewById(R.id.et_item_price)
-        itemQty = findViewById(R.id.et_item_quantity)
-        itemDesc = findViewById(R.id.et_item_description)
         itemPhoto1 = findViewById(R.id.item_image1)
         itemPhoto2 = findViewById(R.id.item_image2)
         itemPhoto3 = findViewById(R.id.item_image3)
@@ -57,6 +61,8 @@ class AddItem : AppCompatActivity() {
 
         storageReference = FirebaseStorage.getInstance()
         auth = FirebaseAuth.getInstance()
+
+        setupCategoryDropdown()
 
         itemPhoto1.setOnClickListener {
             openImagePicker(1)
@@ -74,6 +80,11 @@ class AddItem : AppCompatActivity() {
             addNewItem()
         }
 
+    }
+
+    private fun setupCategoryDropdown() {
+        val categoryAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, CategoryData.categories)
+        itemCategory.setAdapter(categoryAdapter)
     }
 
     private fun openImagePicker(requestCode: Int){
@@ -142,25 +153,29 @@ class AddItem : AppCompatActivity() {
 
                             // If all images are uploaded, proceed to store data in Firestore
                             if (uploadedImageUrls.size == 3) {
-                                //val iCategory = itemCategory.text.toString()
+                                val iCategory = itemCategory.text.toString()
                                 val iName = itemName.text.toString()
+                                val iMedium = itemMedium.text.toString()
+                                val iSubject = itemSubject.text.toString()
+                                val iYear = itemYear.text.toString()
+                                val iSize = itemSize.text.toString()
                                 val iPrice = itemPrice.text.toString()
-                                val iQty = itemQty.text.toString()
-                                val iDesc = itemDesc.text.toString()
 
                                 val sellerMap = hashMapOf(
                                     "seller ID" to uId,
                                     "random ID" to randomId,
-                                    //"item Category" to iCategory,
+                                    "item Category" to iCategory,
                                     "item Name" to iName,
+                                    "item Medium" to iMedium,
+                                    "item Subject" to iSubject,
+                                    "item Year" to iYear,
+                                    "item Size" to iSize,
                                     "item Price" to iPrice,
-                                    "item Qty" to iQty,
-                                    "item Description" to iDesc,
                                     "urls" to uploadedImageUrls // Store all image URIs
                                 )
 
                                 // Store data in Firestore
-                                database.collection("sellerItems").document(randomId).set(sellerMap)
+                                database.collection("Categories").document("$iCategory").collection("categoryItems").document(randomId).set(sellerMap)
                                 database.collection("sellerItemsBySellerID").document(uId)
                                     .collection("singleSellerItems").document(randomId)
                                     .set(sellerMap)
