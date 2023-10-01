@@ -27,6 +27,15 @@
             android:name=".LoginPage"
             android:exported="false" />
         <activity
+            android:name=".Seller_Dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".User_Dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateItem"
+            android:exported="false" />
+        <activity
             android:name=".HelloUser"
             android:exported="false" />
         <activity

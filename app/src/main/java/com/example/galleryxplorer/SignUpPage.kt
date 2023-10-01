@@ -84,7 +84,7 @@ class SignUpPage : AppCompatActivity() {
             }else{
                 auth.createUserWithEmailAndPassword(mail,pwd).addOnCompleteListener {
                     if(it.isSuccessful){
-                        Log.d(ContentValues.TAG, "createuserWithEmail:success")
+                        Log.d(ContentValues.TAG, "createUserWithEmail:success")
 
                         val intent = Intent(this, LoginPage::class.java)
                         startActivity(intent)
