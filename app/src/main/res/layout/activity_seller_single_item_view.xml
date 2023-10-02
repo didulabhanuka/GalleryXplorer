@@ -17,8 +17,7 @@
         android:layout_marginLeft="30dp"
         android:text="THE LOVE STORY"
         android:letterSpacing="0.1"
-        android:layout_marginRight="150dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textAllCaps="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,9 +35,9 @@
         style="@style/SubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:text="SHANAKA KULATHUNGA"
         android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@+id/item_view_name"
         app:layout_constraintStart_toEndOf="@+id/item_view_text_by"
         app:layout_constraintTop_toBottomOf="@+id/item_view_name" />
 
@@ -47,7 +46,8 @@
         android:layout_width="250dp"
         android:layout_height="300dp"
         android:layout_marginTop="25dp"
-        android:background="@drawable/the_love_story"
+        android:background="@drawable/border_shape"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="@+id/item_view_text_by"
         app:layout_constraintTop_toBottomOf="@+id/item_view_seller_name" />
 
@@ -57,6 +57,7 @@
         android:layout_height="100dp"
         android:layout_marginLeft="5dp"
         android:background="@drawable/border_shape"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toEndOf="@+id/item_view_main_image"
         app:layout_constraintTop_toTopOf="@+id/item_view_main_image" />
 
@@ -67,6 +68,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/border_shape"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toEndOf="@+id/item_view_main_image"
         app:layout_constraintTop_toBottomOf="@+id/item_view_second_image" />
 
@@ -207,6 +209,7 @@
         android:layout_marginTop="40dp"
         android:text="DELETE"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_item_update"
         app:layout_constraintTop_toBottomOf="@+id/item_view_price" />
