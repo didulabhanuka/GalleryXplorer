@@ -1,6 +1,7 @@
 package com.example.galleryxplorer
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
@@ -25,6 +26,16 @@ class User_Dashboard : AppCompatActivity() {
         allItems = findViewById(R.id.btn_all_items)
 
         auth = FirebaseAuth.getInstance()
+
+        becomeSeller.setOnClickListener {
+            val intent = Intent(this, SellerRegistration::class.java)
+            startActivity(intent)
+        }
+
+        allItems.setOnClickListener {
+            val intent = Intent(this, User_AllItems::class.java)
+            startActivity(intent)
+        }
 
     }
 }
