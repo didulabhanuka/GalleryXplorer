@@ -90,11 +90,11 @@ class SellerRegistration : AppCompatActivity() {
 
                             // Create a data class or a map to represent the store information
                             val storeData = hashMapOf(
-                                "seller ID" to uId,
-                                "seller Name" to sName,
-                                "seller Number" to sNumber,
-                                "seller Address" to sAddress,
-                                "seller Description" to sDescription,
+                                "sellerId" to uId,
+                                "sellerName" to sName,
+                                "sellerNumber" to sNumber,
+                                "sellerAddress" to sAddress,
+                                "sellerDescription" to sDescription,
                                 "url" to uri
                             )
 

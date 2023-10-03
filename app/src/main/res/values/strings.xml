@@ -38,4 +38,6 @@
     <string name="item_year">Year</string>
     <string name="item_size">Size</string>
     <string name="item_price">Price</string>
+    <string name="your_items_text">Your Items</string>
+    <string name="all_items_text">Items</string>
 </resources>

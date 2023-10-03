@@ -134,65 +134,86 @@ class AddItem : AppCompatActivity() {
 
         if (uId != null){
             val storageReference = FirebaseStorage.getInstance().reference
+
             val uploadedImageUrls = ArrayList<String>()  // Create a list to store the uploaded image URIs.
             val uploadTasks = mutableListOf<Task<UploadTask.TaskSnapshot>>()
 
-            // Upload the three images
-            for ((index, imageUri) in listOf(selectedImageUri1, selectedImageUri2, selectedImageUri3).withIndex()) {
-                if (imageUri != null) {
-                    val imageName = "image${index + 1}_${System.currentTimeMillis()}"
-                    val imageRef = storageReference.child("Images/$uId/$imageName")
-
-                    val uploadTask = imageRef.putFile(imageUri)
-                    uploadTasks.add(uploadTask)
-
-                    uploadTask.addOnSuccessListener { taskSnapshot ->
-                        taskSnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener { uri ->
-                            // Store the downloaded URI in the list
-                            uploadedImageUrls.add(uri.toString())
-
-                            // If all images are uploaded, proceed to store data in Firestore
-                            if (uploadedImageUrls.size == 3) {
-                                val iCategory = itemCategory.text.toString()
-                                val iName = itemName.text.toString()
-                                val iMedium = itemMedium.text.toString()
-                                val iSubject = itemSubject.text.toString()
-                                val iYear = itemYear.text.toString()
-                                val iSize = itemSize.text.toString()
-                                val iPrice = itemPrice.text.toString()
-
-                                val sellerMap = hashMapOf(
-                                    "seller ID" to uId,
-                                    "random ID" to randomId,
-                                    "item Category" to iCategory,
-                                    "item Name" to iName,
-                                    "item Medium" to iMedium,
-                                    "item Subject" to iSubject,
-                                    "item Year" to iYear,
-                                    "item Size" to iSize,
-                                    "item Price" to iPrice,
-                                    "urls" to uploadedImageUrls // Store all image URIs
-                                )
-
-                                // Store data in Firestore
-                                database.collection("Categories").document("$iCategory").collection("categoryItems").document(randomId).set(sellerMap)
-                                database.collection("sellerItemsBySellerID").document(uId)
-                                    .collection("singleSellerItems").document(randomId)
-                                    .set(sellerMap)
-                                    .addOnSuccessListener {
-                                        Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show()
-                                    }
-                                    .addOnFailureListener {err ->
-                                        Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
-                                    }
-                            }
+            fun getSellerName(uId: String, callback: (String?) -> Unit) {
+                val sellerRef = database.collection("sellers").document("$uId")
+                sellerRef.get()
+                    .addOnSuccessListener { documentSnapshot ->
+                        if (documentSnapshot.exists()) {
+                            val sellerName = documentSnapshot.getString("sellerName")
+                            callback(sellerName)
+                        } else {
+                            callback(null)
                         }
                     }
-                        .addOnFailureListener { exception ->
-                            Toast.makeText(this, "Image upload failed: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    .addOnFailureListener { exception ->
+                        callback(null)
+                        Toast.makeText(this, "Error getting seller name: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    }
+            }
+
+            getSellerName(uId) {sellerName ->
+                for ((index, imageUri) in listOf(selectedImageUri1, selectedImageUri2, selectedImageUri3).withIndex()) {
+                    if (imageUri != null) {
+                        val imageName = "image${index + 1}_${System.currentTimeMillis()}"
+                        val imageRef = storageReference.child("Images/$uId/$imageName")
+
+                        val uploadTask = imageRef.putFile(imageUri)
+                        uploadTasks.add(uploadTask)
+
+                        uploadTask.addOnSuccessListener { taskSnapshot ->
+                            taskSnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener { uri ->
+                                // Store the downloaded URI in the list
+                                uploadedImageUrls.add(uri.toString())
+
+                                // If all images are uploaded, proceed to store data in Firestore
+                                if (uploadedImageUrls.size >= 1) {
+                                    val iCategory = itemCategory.text.toString()
+                                    val iName = itemName.text.toString()
+                                    val iMedium = itemMedium.text.toString()
+                                    val iSubject = itemSubject.text.toString()
+                                    val iYear = itemYear.text.toString()
+                                    val iSize = itemSize.text.toString()
+                                    val iPrice = itemPrice.text.toString()
+
+                                    val sellerMap = hashMapOf(
+                                        "sellerId" to uId,
+                                        "randomId" to randomId,
+                                        "sellerName" to sellerName,
+                                        "itemCategory" to iCategory,
+                                        "itemName" to iName,
+                                        "itemMedium" to iMedium,
+                                        "itemSubject" to iSubject,
+                                        "itemYear" to iYear,
+                                        "itemSize" to iSize,
+                                        "itemPrice" to iPrice,
+                                        "urls" to uploadedImageUrls
+                                    )
+
+                                    database.collection("allItems").document(randomId).set(sellerMap)
+                                    database.collection("categories").document("$iCategory").collection("categoryItems").document(randomId).set(sellerMap)
+                                    database.collection("sellerItemsBySellerID").document(uId)
+                                        .collection("sellerItems").document(randomId)
+                                        .set(sellerMap)
+                                        .addOnSuccessListener {
+                                            Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show()
+                                        }
+                                        .addOnFailureListener {err ->
+                                            Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
+                                        }
+                                }
+                            }
                         }
+                            .addOnFailureListener { exception ->
+                                Toast.makeText(this, "Image upload failed: ${exception.message}", Toast.LENGTH_SHORT).show()
+                            }
+                    }
                 }
             }
+
 
         }
     }
