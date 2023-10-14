@@ -4,15 +4,12 @@
     android:width="390dp"
     android:height="373dp"
     android:viewportWidth="390"
-    android:viewportHeight="373"
-    >
+    android:viewportHeight="373">
     <group>
         <clip-path
-            android:pathData="M100 0H290C345.228 0 390 44.7715 390 100V273C390 328.228 345.228 373 290 373H100C44.7715 373 0 328.228 0 273V100C0 44.7715 44.7715 0 100 0Z"
-            />
+            android:pathData="M100 0H290C345.228 0 390 44.7715 390 100V273C390 328.228 345.228 373 290 373H100C44.7715 373 0 328.228 0 273V100C0 44.7715 44.7715 0 100 0ZM0 0H390V100H0z" />
         <path
             android:pathData="M0 0V373H390V0"
-            android:fillColor="#B1B2FF"
-            />
+            android:fillColor="#B1B2FF" />
     </group>
 </vector>

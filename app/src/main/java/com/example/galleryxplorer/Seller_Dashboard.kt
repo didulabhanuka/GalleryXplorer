@@ -12,6 +12,7 @@ import com.google.firebase.ktx.Firebase
 class Seller_Dashboard : AppCompatActivity() {
 
     private lateinit var btnYourItems: AppCompatButton
+    private lateinit var btnYourProfile: AppCompatButton
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,9 +20,15 @@ class Seller_Dashboard : AppCompatActivity() {
         setContentView(R.layout.activity_seller_dashboard)
 
         btnYourItems = findViewById(R.id.btn_your_items)
+        btnYourProfile = findViewById(R.id.btn_your_profile)
 
         btnYourItems.setOnClickListener {
             val intent = Intent(this, Seller_YourItems::class.java)
+            startActivity(intent)
+        }
+
+        btnYourProfile.setOnClickListener {
+            val intent = Intent(this, Seller_SellerProfile::class.java)
             startActivity(intent)
         }
 
