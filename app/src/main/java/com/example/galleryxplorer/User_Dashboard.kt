@@ -24,8 +24,8 @@ class User_Dashboard : AppCompatActivity() {
         setContentView(R.layout.activity_user_dashboard)
 
         becomeSeller = findViewById(R.id.btn_become_seller)
-        allItems = findViewById(R.id.btn_all_items)
-        categories = findViewById(R.id.btn_categories)
+        allItems = findViewById(R.id.btn_user_all_items)
+        categories = findViewById(R.id.btn_user_categories)
 
         auth = FirebaseAuth.getInstance()
 
