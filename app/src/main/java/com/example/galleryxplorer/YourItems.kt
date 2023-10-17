@@ -9,6 +9,8 @@ data class YourItems(
     val itemYear: String? = null,
     val itemSize: String? = null,
     val itemPrice: String? = null,
+    val sellerId: String? = null,
+    val randomId: String? = null,
     val urls: List<String>? = null
 
 )

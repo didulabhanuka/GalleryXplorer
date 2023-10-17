@@ -46,7 +46,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/add_item_linearLayout"
-                app:startIconDrawable="@drawable/baseline_category_24"
+                app:startIconDrawable="@drawable/baseline_category"
                 app:startIconTint="@color/elements_color">
 
                 <AutoCompleteTextView
@@ -202,6 +202,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginTop="15dp"
+                    android:scaleType="centerCrop"
                     android:background="@drawable/border_shape"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/baseline_add_24" />
@@ -212,6 +213,7 @@
                     android:layout_height="100dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="10dp"
+                    android:scaleType="centerCrop"
                     android:background="@drawable/border_shape"
                     app:srcCompat="@drawable/baseline_add_24" />
 
@@ -221,6 +223,7 @@
                     android:layout_height="100dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="10dp"
+                    android:scaleType="centerCrop"
                     android:background="@drawable/border_shape"
                     app:srcCompat="@drawable/baseline_add_24" />
 

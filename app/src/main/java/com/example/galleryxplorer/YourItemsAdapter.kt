@@ -30,6 +30,8 @@ class YourItemsAdapter(
         val itemYear: TextView = itemView.findViewById(R.id.items_singleItem_year)
         val itemSize: TextView = itemView.findViewById(R.id.items_singleItem_size)
         val itemPrice: TextView = itemView.findViewById(R.id.items_singleItem_price)
+        val sellerId: TextView = itemView.findViewById(R.id.items_singleItem_size)
+        val randomId: TextView = itemView.findViewById(R.id.items_singleItem_randomId)
         val itemMainImage: ImageView = itemView.findViewById(R.id.items_singleItem_mainImage)
         val itemSecondImage: ImageView = itemView.findViewById(R.id.items_singleItem_secondImage)
         val itemThirdImage: ImageView = itemView.findViewById(R.id.items_singleItem_thirdImage)
@@ -52,6 +54,8 @@ class YourItemsAdapter(
         holder.itemYear.text = sellerItemList[position].itemYear
         holder.itemSize.text = sellerItemList[position].itemSize
         holder.itemPrice.text = sellerItemList[position].itemPrice
+        holder.sellerId.text = sellerItemList[position].sellerId
+        holder.randomId.text = sellerItemList[position].randomId
 
         val imageUrls = sellerItemList[position].urls
         if (imageUrls != null && imageUrls.isNotEmpty()) {
@@ -78,6 +82,8 @@ class YourItemsAdapter(
             intent.putExtra("itemYear", sellerItemList[position].itemYear)
             intent.putExtra("itemSize", sellerItemList[position].itemSize)
             intent.putExtra("itemPrice", sellerItemList[position].itemPrice)
+            intent.putExtra("sellerId", sellerItemList[position].sellerId)
+            intent.putExtra("randomId", sellerItemList[position].randomId)
 
             context.startActivity(intent)
 
