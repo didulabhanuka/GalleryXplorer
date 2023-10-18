@@ -44,8 +44,6 @@ class Seller_YourItems : AppCompatActivity() {
                     val yourItems:YourItems? = data.toObject(YourItems::class.java)
                     if(yourItems != null){
                         sellerItemList.add(yourItems)
-                        Log.d("Firestore", "Added item: ${yourItems.itemName}")
-
                     }
                 }
                 recyclerView.adapter = YourItemsAdapter(sellerItemList, this)

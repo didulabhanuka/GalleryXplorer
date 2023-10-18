@@ -48,6 +48,9 @@
             android:name=".Seller_YourItems"
             android:exported="false" />
         <activity
+            android:name=".Seller_YourEvents"
+            android:exported="false" />
+        <activity
             android:name=".Seller_SingleItemView"
             android:exported="false" />
         <activity
@@ -55,6 +58,9 @@
             android:exported="false" />
         <activity
             android:name=".AddItem"
+            android:exported="false" />
+        <activity
+            android:name=".AddEvent"
             android:exported="false" />
         <activity
             android:name=".User_Dashboard"
