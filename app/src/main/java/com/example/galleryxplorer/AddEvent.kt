@@ -198,7 +198,7 @@ class AddEvent : AppCompatActivity() {
                             )
 
                             database.collection("allEvents").document(randomId).set(eventMap)
-                            database.collection("eventDates").document("$eDate").collection("eventsForTheDay").document(randomId).set(eventMap)
+                            database.collection("eventDates").document("$eDate").collection("events").document(randomId).set(eventMap)
                             database.collection("eventsBySellerID").document(uId)
                                 .collection("sellerEvents").document(randomId)
                                 .set(eventMap)
