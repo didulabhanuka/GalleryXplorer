@@ -53,6 +53,25 @@ class YourEventsAdapter (
         holder.eventDescription.text = sellerEventList[position].eventDescription
 
         Glide.with(context).load(sellerEventList[position].urls).into(holder.eventBanner)
+
+        holder.viewEvent.setOnClickListener(){
+            val intent = Intent(context, Seller_SingleEventView::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+
+            intent.putExtra("sellerId", sellerEventList[position].sellerId)
+            intent.putExtra("randomId", sellerEventList[position].randomId)
+            intent.putExtra("sellerName", sellerEventList[position].sellerName)
+            intent.putExtra("eventCategory", sellerEventList[position].eventCategory)
+            intent.putExtra("eventName", sellerEventList[position].eventName)
+            intent.putExtra("eventVenue", sellerEventList[position].eventVenue)
+            intent.putExtra("eventTime", sellerEventList[position].eventTime)
+            intent.putExtra("eventDate", sellerEventList[position].eventDate)
+            intent.putExtra("eventOrganizers", sellerEventList[position].eventOrganizers)
+            intent.putExtra("eventDescription", sellerEventList[position].eventDescription)
+            intent.putExtra("urls", sellerEventList[position].urls)
+
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
