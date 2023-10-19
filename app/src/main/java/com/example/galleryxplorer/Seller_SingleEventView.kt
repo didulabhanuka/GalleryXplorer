@@ -1,10 +1,13 @@
 package com.example.galleryxplorer
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
@@ -59,8 +62,71 @@ class Seller_SingleEventView : AppCompatActivity() {
         eventOrganizers.text = intent.getStringExtra("eventOrganizers").toString()
         eventDescription.text = intent.getStringExtra("eventDescription").toString()
 
-        intent.getStringExtra("urls")?.let { imageUrl ->
-            Glide.with(this).load(imageUrl).into(eventBanner)
+        val imageUrl = intent.getStringExtra("urls")
+        Glide.with(this).load(imageUrl).into(eventBanner)
+
+        btnUpdate.setOnClickListener {
+            val intent = Intent(this, UpdateEvent::class.java)
+
+            intent.putExtra("sellerId", sellerId.text.toString())
+            intent.putExtra("randomId", randomId.text.toString())
+            intent.putExtra("sellerName", sellerName.text.toString())
+            intent.putExtra("eventCategory", eventCategory.text.toString())
+            intent.putExtra("eventName", eventName.text.toString())
+            intent.putExtra("eventVenue", eventVenue.text.toString())
+            intent.putExtra("eventTime", eventTime.text.toString())
+            intent.putExtra("eventDate", eventDate.text.toString())
+            intent.putExtra("eventOrganizers", eventOrganizers.text.toString())
+            intent.putExtra("eventDescription", eventDescription.text.toString())
+
+            if (imageUrl != null) {
+                intent.putExtra("urls", imageUrl)
+                Log.d("MyTag", "$imageUrl")
+            } else {
+                Log.d("MyTag", "Urls is null")
+            }
+
+            startActivity(intent)
         }
+
+        btnDelete.setOnClickListener {
+            showDeleteConfirmationDialog()
+        }
+    }
+
+    private fun showDeleteConfirmationDialog() {
+        val alertDialog = AlertDialog.Builder(this)
+            .setTitle("Delete Item")
+            .setMessage("Are you sure you want to delete this item?")
+            .setPositiveButton("Delete") { dialog, _ ->
+                deleteItem()
+                dialog.dismiss()
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+
+        alertDialog.show()
+    }
+
+    private fun deleteItem() {
+        val randomEventId = randomId.text.toString()
+
+        // Use Firestore to delete the item with the specified randomId
+        database.collection("eventsBySellerID").document(intent.getStringExtra("sellerId").toString()).collection("sellerEvents").document(intent.getStringExtra("randomId").toString()).delete()
+        database.collection("allEvents").document(randomEventId).delete()
+        database.collection("eventDates").document(intent.getStringExtra("eventDate").toString())
+            .collection("events")
+            .document(intent.getStringExtra("randomId").toString())
+            .delete()
+            .addOnSuccessListener {
+                val intent = Intent(this, Seller_YourEvents::class.java)
+                startActivity(intent)
+            }
+            .addOnFailureListener { e ->
+                // Handle the error if the deletion fails
+                Log.e("DeleteItem", "Error deleting item: $e")
+            }
     }
 }
