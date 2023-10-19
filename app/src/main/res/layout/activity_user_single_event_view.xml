@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".User_SingleEventView"
+    android:padding="20dp"
+    android:background="@color/background_color">
+
+    <ImageView
+        android:id="@+id/event_view_eventBanner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_shape"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/event_view_name"
+        style="@style/Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:letterSpacing="0.1"
+        android:text="EVENT NAME"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@+id/event_view_eventBanner"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_eventBanner" />
+
+    <TextView
+        android:id="@+id/item_view_text_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BY"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/event_view_name"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_name" />
+
+    <TextView
+        android:id="@+id/event_view_seller_name"
+        style="@style/SubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="SELLER NAME"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/item_view_text_by"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_name" />
+
+    <TextView
+        android:id="@+id/event_view_text_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Category : "
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@+id/item_view_text_by"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_seller_name" />
+
+    <TextView
+        android:id="@+id/event_view_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="category hint"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/event_view_eventBanner"
+        app:layout_constraintStart_toEndOf="@+id/event_view_text_category"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_seller_name" />
+
+    <TextView
+        android:id="@+id/event_view_text_venue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="venue : "
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@+id/event_view_text_category"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_text_category" />
+
+    <TextView
+        android:id="@+id/event_view_venue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="venue hint"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/event_view_category"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_category" />
+
+    <TextView
+        android:id="@+id/event_view_text_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="date : "
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@+id/event_view_text_venue"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_text_venue" />
+
+    <TextView
+        android:id="@+id/event_view_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="date hint"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/event_view_venue"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_venue" />
+
+    <TextView
+        android:id="@+id/event_view_text_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="time : "
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@+id/event_view_text_date"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_text_date" />
+
+    <TextView
+        android:id="@+id/event_view_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="time hint"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/event_view_date"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_date" />
+
+    <TextView
+        android:id="@+id/event_view_text_guests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="guests : "
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@+id/event_view_text_time"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_text_time" />
+
+    <TextView
+        android:id="@+id/event_view_guests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="guestes hint"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/event_view_time"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_time" />
+
+    <TextView
+        android:id="@+id/event_view_text_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Description :"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@+id/event_view_text_guests"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_text_guests" />
+
+    <TextView
+        android:id="@+id/event_view_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="description hint"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/event_view_text_description"
+        app:layout_constraintTop_toBottomOf="@+id/event_view_text_description" />
+
+
+    <TextView
+        android:id="@+id/event_view_sellerId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/event_view_randomId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,13 +7,13 @@
     android:layout_margin="10dp">
 
     <ImageView
-        android:id="@+id/events_singleEvent_eventBanner"
+        android:id="@+id/allEvents_singleEvent_eventBanner"
         android:layout_width="match_parent"
         android:layout_height="168dp"
         android:scaleType="centerCrop" />
 
     <TextView
-        android:id="@+id/events_singleEvent_name"
+        android:id="@+id/allEvents_singleEvent_name"
         style="@style/Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,20 +28,21 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/events_singleEvent_textDate"
+            android:id="@+id/allEvents_singleEvent_textBy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp"
-            android:text="Date :"/>
+            android:text="By"/>
 
         <TextView
-            android:id="@+id/events_singleEvent_date"
+            android:id="@+id/allEvents_singleEvent_sellerName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
+            android:textStyle="italic"
             android:layout_marginLeft="5dp"
             android:textSize="12sp"
-            android:text="Date" />
+            android:text="Time" />
 
     </LinearLayout>
 
@@ -50,26 +51,57 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/events_singleEvent_textTime"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="Time :"/>
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/events_singleEvent_time"
-            android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/allEvents_singleEvent_textDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="Date :"/>
+
+            <TextView
+                android:id="@+id/allEvents_singleEvent_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                android:text="Date" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_marginLeft="5dp"
-            android:textSize="12sp"
-            android:text="Time" />
+            android:orientation="horizontal"
+            android:layout_marginLeft="40dp">
+
+            <TextView
+                android:id="@+id/allEvents_singleEvent_textVenue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="Venue :"/>
+
+            <TextView
+                android:id="@+id/allEvents_singleEvent_venue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                android:text="Venue" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/events_singleEvent_textView"
+        android:id="@+id/allEvents_singleEvent_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
@@ -79,44 +111,38 @@
         android:padding="1dp" />
 
     <TextView
-        android:id="@+id/events_singleEvent_venue"
+        android:id="@+id/allEvents_singleEvent_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/events_singleEvent_organizers"
+        android:id="@+id/allEvents_singleEvent_organizers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name"
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/events_singleEvent_description"
+        android:id="@+id/allEvents_singleEvent_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/events_singleEvent_category"
+        android:id="@+id/allEvents_singleEvent_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/events_singleEvent_sellerId"
+        android:id="@+id/allEvents_singleEvent_sellerId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone" />
 
     <TextView
-        android:id="@+id/events_singleEvent_randomId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/events_singleEvent_sellerName"
+        android:id="@+id/allEvents_singleEvent_randomId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone" />
