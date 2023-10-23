@@ -14,6 +14,7 @@ class User_Dashboard : AppCompatActivity() {
     private lateinit var becomeSeller : AppCompatButton
     private lateinit var allItems : AppCompatButton
     private lateinit var categories : AppCompatButton
+    private lateinit var btnCalendar: AppCompatButton
     private lateinit var allEvents : AppCompatButton
 
     private var database = Firebase.firestore
@@ -28,6 +29,7 @@ class User_Dashboard : AppCompatActivity() {
         allItems = findViewById(R.id.btn_user_all_items)
         categories = findViewById(R.id.btn_user_categories)
         allEvents = findViewById(R.id.btn_user_events)
+        btnCalendar = findViewById(R.id.btn_user_calender)
 
         auth = FirebaseAuth.getInstance()
 
@@ -47,6 +49,11 @@ class User_Dashboard : AppCompatActivity() {
 
         allEvents.setOnClickListener {
             val intent = Intent(this, User_AllEvents::class.java)
+            startActivity(intent)
+        }
+
+        btnCalendar.setOnClickListener {
+            val intent = Intent(this, User_Calendar::class.java)
             startActivity(intent)
         }
 

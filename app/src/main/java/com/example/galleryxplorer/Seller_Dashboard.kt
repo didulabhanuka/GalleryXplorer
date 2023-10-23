@@ -16,6 +16,7 @@ class Seller_Dashboard : AppCompatActivity() {
     private lateinit var btnYourItems: AppCompatButton
     private lateinit var btnYourProfile: AppCompatButton
     private lateinit var btnYourEvents: AppCompatButton
+    private lateinit var btnCalendar: AppCompatButton
     private lateinit var sellerName: TextView
 
     private lateinit var auth: FirebaseAuth
@@ -30,6 +31,7 @@ class Seller_Dashboard : AppCompatActivity() {
         btnYourItems = findViewById(R.id.btn_your_items)
         btnYourProfile = findViewById(R.id.btn_your_profile)
         btnYourEvents = findViewById(R.id.btn_your_events)
+        btnCalendar = findViewById(R.id.btn_calender)
 
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
@@ -58,6 +60,11 @@ class Seller_Dashboard : AppCompatActivity() {
 
         btnYourEvents.setOnClickListener {
             val intent = Intent(this, Seller_YourEvents::class.java)
+            startActivity(intent)
+        }
+
+        btnCalendar.setOnClickListener {
+            val intent = Intent(this, User_Calendar::class.java)
             startActivity(intent)
         }
 
