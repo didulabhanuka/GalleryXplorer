@@ -1,6 +1,7 @@
 package com.example.galleryxplorer
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -41,6 +42,8 @@ class User_SingleEventView : AppCompatActivity() {
         eventDescription = findViewById(R.id.event_view_description)
         eventBanner = findViewById(R.id.event_view_eventBanner)
 
+        sellerName.isClickable = true
+
         sellerId.text = intent.getStringExtra("sellerId").toString()
         randomId.text = intent.getStringExtra("randomId").toString()
         sellerName.text = intent.getStringExtra("sellerName").toString()
@@ -54,5 +57,14 @@ class User_SingleEventView : AppCompatActivity() {
 
         val imageUrl = intent.getStringExtra("urls")
         Glide.with(this).load(imageUrl).into(eventBanner)
+
+        sellerName.setOnClickListener {
+            // Get the sellerId from the TextView
+            val sellerId = sellerId.text.toString()
+
+            val intent = Intent(this, User_SellerProfileView::class.java)
+            intent.putExtra("sellerId", sellerId)
+            startActivity(intent)
+        }
     }
 }
