@@ -15,6 +15,21 @@
             android:name=".User_SellerProfileView"
             android:exported="false" />
         <activity
+            android:name=".User_Calendar"
+            android:exported="false" />
+        <activity
+            android:name=".User_SingleEventView"
+            android:exported="false" />
+        <activity
+            android:name=".User_AllEvents"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateEvent"
+            android:exported="false" />
+        <activity
+            android:name=".Seller_SingleEventView"
+            android:exported="false" />
+        <activity
             android:name=".Seller_SellerProfile"
             android:exported="false" />
         <activity
@@ -51,6 +66,9 @@
             android:name=".Seller_YourItems"
             android:exported="false" />
         <activity
+            android:name=".Seller_YourEvents"
+            android:exported="false" />
+        <activity
             android:name=".Seller_SingleItemView"
             android:exported="false" />
         <activity
@@ -58,6 +76,9 @@
             android:exported="false" />
         <activity
             android:name=".AddItem"
+            android:exported="false" />
+        <activity
+            android:name=".AddEvent"
             android:exported="false" />
         <activity
             android:name=".User_Dashboard"
