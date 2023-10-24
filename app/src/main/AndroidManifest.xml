@@ -12,6 +12,9 @@
         android:theme="@style/Theme.GalleryXplorer"
         tools:targetApi="31">
         <activity
+            android:name=".SpecificSellerItems"
+            android:exported="false" />
+        <activity
             android:name=".User_SellerProfileView"
             android:exported="false" />
         <activity

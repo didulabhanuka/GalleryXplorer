@@ -213,7 +213,13 @@
         app:layout_constraintStart_toEndOf="@+id/btn_item_buyNow"
         app:layout_constraintTop_toBottomOf="@+id/user_item_view_price" />
 
-
+    <TextView
+        android:id="@+id/user_item_view_sellerId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/user_item_view_text_medium"
+        app:layout_constraintTop_toBottomOf="@+id/user_item_view_text_medium" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

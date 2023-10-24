@@ -1,6 +1,7 @@
 package com.example.galleryxplorer
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -9,6 +10,7 @@ import com.bumptech.glide.Glide
 
 class Buyer_SingleItemView : AppCompatActivity() {
 
+    private lateinit var sellerId: TextView
     private lateinit var sellerName: TextView
     private lateinit var itemName: TextView
     private lateinit var itemCategory: TextView
@@ -26,6 +28,7 @@ class Buyer_SingleItemView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buyer_single_item_view)
 
+        sellerId = findViewById(R.id.user_item_view_sellerId)
         sellerName = findViewById(R.id.user_item_view_seller_name)
         itemName = findViewById(R.id.user_item_view_name)
         itemCategory = findViewById(R.id.user_item_view_category)
@@ -38,6 +41,9 @@ class Buyer_SingleItemView : AppCompatActivity() {
         itemSecondImage = findViewById(R.id.user_item_view_second_image)
         itemThirdImage = findViewById(R.id.user_item_view_third_image)
 
+        sellerName.isClickable = true
+
+        sellerId.text = intent.getStringExtra("sellerId").toString()
         sellerName.text = intent.getStringExtra("sellerName").toString()
         itemName.text = intent.getStringExtra("itemName").toString()
         itemCategory.text = intent.getStringExtra("itemCategory").toString()
@@ -62,5 +68,15 @@ class Buyer_SingleItemView : AppCompatActivity() {
             // Handle the case when image URLs are not available
             // You can hide or show placeholders, or display a message as needed.
         }
+
+        sellerName.setOnClickListener {
+            // Get the sellerId from the TextView
+            val sellerId = sellerId.text.toString()
+
+            val intent = Intent(this, User_SellerProfileView::class.java)
+            intent.putExtra("sellerId", sellerId)
+            startActivity(intent)
+        }
+
     }
 }
