@@ -1,5 +1,6 @@
 package com.example.galleryxplorer
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,7 @@ class SignUpPage : AppCompatActivity() {
     private val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\\\.+[a-z]+"
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up_page)
@@ -82,8 +84,7 @@ class SignUpPage : AppCompatActivity() {
             }else{
                 auth.createUserWithEmailAndPassword(mail,pwd).addOnCompleteListener {
                     if(it.isSuccessful){
-                        Log.d(ContentValues.TAG, "createuserWithEmail:success")
-                        val user = auth.currentUser
+                        Log.d(ContentValues.TAG, "createUserWithEmail:success")
 
                         val intent = Intent(this, LoginPage::class.java)
                         startActivity(intent)
