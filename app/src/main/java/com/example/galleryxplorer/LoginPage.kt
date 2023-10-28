@@ -62,11 +62,11 @@ class LoginPage : AppCompatActivity() {
                                     val sellerDocument = sellerTask.result
                                     if (sellerDocument.exists()) {
                                         // User is a seller, direct to seller dashboard
-                                        val intent = Intent()
+                                        val intent = Intent(this, Seller_Dashboard::class.java)
                                         startActivity(intent)
                                     } else {
                                         // User is not a seller, direct to user dashboard
-                                        val intent = Intent()
+                                        val intent = Intent(this, User_Dashboard::class.java)
                                         startActivity(intent)
                                     }
                                 } else {

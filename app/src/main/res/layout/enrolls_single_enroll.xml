@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/background_color"
+    android:layout_margin="10dp">
+
+
+
+    <TextView
+        android:id="@+id/classes_singleClass_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textAllCaps="true"
+        android:text="NIC"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/classes_singleClass_itemMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:text="Level"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_itemSubject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:text="Course"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_itemSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:text="Price"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_itemYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:text="DOB"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_itemName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:text="Time"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textColor="@color/elements_color"
+        android:text="CHECK"
+        android:textSize="16sp"
+        android:padding="1dp" />
+
+    <TextView
+        android:id="@+id/classes_singleClass_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_sellerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/classes_singleClass_sellerId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/classes_singleClass_randomId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</LinearLayout>

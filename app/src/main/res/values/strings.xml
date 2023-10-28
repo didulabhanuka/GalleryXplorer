@@ -29,5 +29,41 @@
     <string name="register_have_account">
         Already have an account?
     </string>
+
+
     <string name="register_login_text"><font color="#00C9B8"><b>Login</b></font></string>
+
+    //item: paint
+    <string name="item_name">Name</string>
+    <string name="item_medium">Medium</string>
+    <string name="item_subject">Subject</string>
+    <string name="item_year">Year</string>
+    <string name="item_size">Size</string>
+    <string name="item_price">Price</string>
+    <string name="your_items_text">Your Items</string>
+    <string name="all_items_text">Items</string>
+
+
+    <!-- Auction Items  -->
+
+    <string name="your_auction_text">Your Auctions</string>
+    <string name="min_bid">Minimum Bid</string>
+    <string name="bid_amount">Bid Amount</string>
+    <string name="auction_name">Auction Name</string>
+
+    <!-- Class Items  -->
+
+    <string name="your_class_text">Your Classes</string>
+    <string name="start_date">Start Date</string>
+    <string name="duration">Duration</string>
+    <string name="all_classes_text">Classes</string>
+    <string name="professional_level">Professional Level (Entry/Mid/Pro)</string>
+    <string name="nic">NIC </string>
+    <string name="dob">Date of Birth</string>
+    <string name="cname">Course Name</string>
+    <string name="time">Part Time / Full Time</string>
+    <string name="your_enroll_text">Your Enrolls</string>
+    <string name="course_fee">Course Fee</string>
 </resources>
+
+

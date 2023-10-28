@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Buyer_SingleClassView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:background="@color/background_color">
+
+        <TextView
+            android:id="@+id/user_class_view_name"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:text="THE LOVE STORY"
+            android:letterSpacing="0.1"
+            android:textAllCaps="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/class_view_text_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BY"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/user_class_view_name"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_name" />
+
+    <TextView
+        android:id="@+id/user_class_view_seller_name"
+        style="@style/SubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="SHANAKA KULATHUNGA"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/class_view_text_by"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_name" />
+
+    <ImageView
+        android:id="@+id/user_class_view_main_image"
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/border_shape"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="@+id/class_view_text_by"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_seller_name" />
+
+    <ImageView
+        android:id="@+id/user_class_view_second_image"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/border_shape"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/user_class_view_main_image"
+        app:layout_constraintTop_toTopOf="@+id/user_class_view_main_image" />
+
+    <ImageView
+        android:id="@+id/user_class_view_third_image"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border_shape"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/user_class_view_main_image"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_second_image" />
+
+    <TextView
+        android:id="@+id/user_class_view_text_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Category : "
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@+id/user_class_view_main_image"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_main_image" />
+
+    <TextView
+        android:id="@+id/user_class_view_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text=""
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/user_class_view_main_image"
+        app:layout_constraintStart_toEndOf="@+id/user_class_view_text_category"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_main_image" />
+
+    <TextView
+        android:id="@+id/user_class_view_text_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Medium : "
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@+id/user_class_view_text_category"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_text_category" />
+
+    <TextView
+        android:id="@+id/user_class_view_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/user_class_view_category"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_category" />
+
+    <TextView
+        android:id="@+id/user_class_view_text_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Subject : "
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@+id/user_class_view_text_medium"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_text_medium" />
+
+    <TextView
+        android:id="@+id/user_class_view_image_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/user_class_view_medium"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_medium" />
+
+    <TextView
+        android:id="@+id/user_class_view_text_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Start Date : "
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@+id/user_class_view_text_subject"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_text_subject" />
+
+    <TextView
+        android:id="@+id/user_class_view_image_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/user_class_view_image_subject"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_image_subject" />
+
+    <TextView
+        android:id="@+id/user_class_view_text_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Duration : "
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@+id/user_class_view_text_year"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_text_year" />
+
+    <TextView
+        android:id="@+id/user_class_view_image_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/user_class_view_image_year"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_image_year" />
+
+    <TextView
+        android:id="@+id/user_class_view_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textAllCaps="true"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/user_class_view_text_size"
+        app:layout_constraintTop_toBottomOf="@+id/user_class_view_text_size" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_class_buyNow"
+            style="@style/ButtonGreen"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:text="Enroll Now"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_class_view_text_size" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+
+
+
+
+
