@@ -121,8 +121,6 @@ class Seller_SingleEventView : AppCompatActivity() {
             .document(intent.getStringExtra("randomId").toString())
             .delete()
             .addOnSuccessListener {
-                val intent = Intent(this, Seller_YourEvents::class.java)
-                startActivity(intent)
                 finish()
             }
             .addOnFailureListener { e ->

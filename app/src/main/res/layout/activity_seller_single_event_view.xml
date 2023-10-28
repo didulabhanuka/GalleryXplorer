@@ -213,13 +213,11 @@
         style="@style/ButtonRed"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="DELETE"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_event_update"
-        app:layout_constraintTop_toBottomOf="@+id/event_view_text_description" />
+        app:layout_constraintStart_toEndOf="@+id/btn_event_update" />
 
 
 

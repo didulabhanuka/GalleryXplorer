@@ -19,165 +19,176 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <GridLayout
-        android:id="@+id/SellerProfile_GridLayout"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
-        android:columnCount="2"
-        android:orientation="horizontal"
-        android:rowCount="5"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dashboard_user_name">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_user_profile"
-            style="@style/ButtonGreen"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_columnWeight="1"
-            android:layout_row="0"
-            android:drawableTop="@drawable/baseline_person_24"
-            android:drawableTint="@color/black"
-            android:paddingTop="10dp"
-            android:text="your profile" />
+        <GridLayout
+            android:id="@+id/SellerProfile_GridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:rowCount="5"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_user_all_items"
-            style="@style/ButtonGreen"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_columnWeight="1"
-            android:text="items"
-            android:drawableTop="@drawable/baseline_category_24"
-            android:drawableTint="@color/black"
-            android:paddingTop="10dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_user_profile"
+                style="@style/ButtonGreen"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_row="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:drawableTop="@drawable/baseline_person_24"
+                android:drawableTint="@color/black"
+                android:paddingTop="10dp"
+                android:text="your profile" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_user_categories"
-            style="@style/ButtonGreen"
-            android:layout_marginTop="20dp"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_columnWeight="1"
-            android:text="categories"
-            android:drawableTop="@drawable/baseline_table_rows_24"
-            android:drawableTint="@color/black"
-            android:paddingTop="10dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_user_all_items"
+                style="@style/ButtonGreen"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:drawableTop="@drawable/baseline_category_24"
+                android:drawableTint="@color/black"
+                android:paddingTop="10dp"
+                android:text="items" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_user_classes"
-            style="@style/ButtonGreen"
-            android:layout_marginTop="20dp"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_columnWeight="1"
-            android:layout_row="1"
-            android:text="classes"
-            android:drawableTop="@drawable/baseline_ondemand_video_24"
-            android:drawableTint="@color/black"
-            android:paddingTop="10dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_user_categories"
+                style="@style/ButtonGreen"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:drawableTop="@drawable/baseline_table_rows_24"
+                android:drawableTint="@color/black"
+                android:paddingTop="10dp"
+                android:text="categories" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_user_events"
-            style="@style/ButtonGreen"
-            android:layout_marginTop="20dp"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_columnWeight="1"
-            android:text="events"
-            android:drawableTop="@drawable/baseline_event_24"
-            android:drawableTint="@color/black"
-            android:paddingTop="10dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_user_classes"
+                style="@style/ButtonGreen"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_row="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:drawableTop="@drawable/baseline_ondemand_video_24"
+                android:drawableTint="@color/black"
+                android:paddingTop="10dp"
+                android:text="classes" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_user_auction_items"
-            style="@style/ButtonGreen"
-            android:layout_marginTop="20dp"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_columnWeight="1"
-            android:layout_row="2"
-            android:text="auction items"
-            android:drawableTop="@drawable/baseline_gavel_24"
-            android:drawableTint="@color/black"
-            android:paddingTop="10dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_user_events"
+                style="@style/ButtonGreen"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:drawableTop="@drawable/baseline_event_24"
+                android:drawableTint="@color/black"
+                android:paddingTop="10dp"
+                android:text="events" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_user_calender"
-            style="@style/ButtonGreen"
-            android:layout_marginTop="20dp"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_columnWeight="1"
-            android:text="calender"
-            android:drawableTop="@drawable/baseline_calendar_month_24"
-            android:drawableTint="@color/black"
-            android:paddingTop="10dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_user_auction_items"
+                style="@style/ButtonGreen"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_row="2"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:drawableTop="@drawable/baseline_gavel_24"
+                android:drawableTint="@color/black"
+                android:paddingTop="10dp"
+                android:text="auction items" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_user_map"
-            style="@style/ButtonGreen"
-            android:layout_marginTop="20dp"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_columnWeight="1"
-            android:layout_row="3"
-            android:text="map"
-            android:drawableTop="@drawable/baseline_map_24"
-            android:drawableTint="@color/black"
-            android:paddingTop="10dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_user_calender"
+                style="@style/ButtonGreen"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:drawableTop="@drawable/baseline_calendar_month_24"
+                android:drawableTint="@color/black"
+                android:paddingTop="10dp"
+                android:text="calender" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_become_seller"
-            style="@style/ButtonGreen"
-            android:layout_marginTop="20dp"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_columnWeight="1"
-            android:layout_row="3"
-            android:text="become a seller"
-            android:drawableTop="@drawable/baseline_how_to_reg_24"
-            android:drawableTint="@color/black"
-            android:paddingTop="10dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_user_map"
+                style="@style/ButtonGreen"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_row="3"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:drawableTop="@drawable/baseline_map_24"
+                android:drawableTint="@color/black"
+                android:paddingTop="10dp"
+                android:text="map" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_user_settings"
-            style="@style/ButtonGreen"
-            android:layout_marginTop="20dp"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_columnWeight="1"
-            android:text="settings"
-            android:drawableTop="@drawable/baseline_settings_24"
-            android:drawableTint="@color/black"
-            android:paddingTop="10dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_become_seller"
+                style="@style/ButtonGreen"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_row="3"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:drawableTop="@drawable/baseline_how_to_reg_24"
+                android:drawableTint="@color/black"
+                android:paddingTop="10dp"
+                android:text="become a seller" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_signOut"
-            style="@style/ButtonGreen"
-            android:layout_marginTop="20dp"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_columnWeight="1"
-            android:layout_row="4"
-            android:text="sign out"
-            android:drawableTop="@drawable/baseline_logout_24"
-            android:drawableTint="@color/black"
-            android:paddingTop="10dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_user_settings"
+                style="@style/ButtonGreen"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:drawableTop="@drawable/baseline_settings_24"
+                android:drawableTint="@color/black"
+                android:paddingTop="10dp"
+                android:text="settings" />
 
-    </GridLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_signOut"
+                style="@style/ButtonGreen"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_row="4"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:drawableTop="@drawable/baseline_logout_24"
+                android:drawableTint="@color/black"
+                android:paddingTop="10dp"
+                android:text="sign out" />
+
+        </GridLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

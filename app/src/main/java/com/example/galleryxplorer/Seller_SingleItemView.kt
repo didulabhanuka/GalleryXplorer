@@ -135,8 +135,6 @@ class Seller_SingleItemView : AppCompatActivity() {
             .document(randomItemId)
             .delete()
             .addOnSuccessListener {
-                val intent = Intent(this, Seller_YourItems::class.java)
-                startActivity(intent)
                 finish()
             }
             .addOnFailureListener { e ->
