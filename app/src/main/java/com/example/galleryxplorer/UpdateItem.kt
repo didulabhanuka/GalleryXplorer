@@ -211,7 +211,7 @@ class UpdateItem : AppCompatActivity() {
                                 .document(intent.getStringExtra("randomId").toString()).update(updatedItemData)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Item updated successfully", Toast.LENGTH_SHORT).show()
-
+                                    finish()
                                 }
                                 .addOnFailureListener {
                                     Toast.makeText(this, "Item updated fail", Toast.LENGTH_SHORT).show()

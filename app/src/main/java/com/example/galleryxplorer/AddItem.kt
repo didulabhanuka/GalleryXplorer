@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.Task
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -41,6 +42,7 @@ class AddItem : AppCompatActivity() {
     private var selectedImageUri1: Uri? = null
     private var selectedImageUri2: Uri? = null
     private var selectedImageUri3: Uri? = null
+    private var addedItem = false // Flag to track if an item was successfully added
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -200,6 +202,8 @@ class AddItem : AppCompatActivity() {
                                         .set(sellerMap)
                                         .addOnSuccessListener {
                                             Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show()
+                                            addedItem = true // Set the flag to true after successfully adding the item
+                                            finish() // This will prevent going back to the AddItem page
                                         }
                                         .addOnFailureListener {err ->
                                             Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()

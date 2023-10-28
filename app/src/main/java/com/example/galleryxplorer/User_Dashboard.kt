@@ -15,6 +15,7 @@ class User_Dashboard : AppCompatActivity() {
     private lateinit var allItems : AppCompatButton
     private lateinit var categories : AppCompatButton
     private lateinit var btnCalendar: AppCompatButton
+    private lateinit var btnSignOut: AppCompatButton
     private lateinit var allEvents : AppCompatButton
 
     private var database = Firebase.firestore
@@ -30,6 +31,7 @@ class User_Dashboard : AppCompatActivity() {
         categories = findViewById(R.id.btn_user_categories)
         allEvents = findViewById(R.id.btn_user_events)
         btnCalendar = findViewById(R.id.btn_user_calender)
+        btnSignOut = findViewById(R.id.btn_signOut)
 
         auth = FirebaseAuth.getInstance()
 
@@ -55,6 +57,18 @@ class User_Dashboard : AppCompatActivity() {
         btnCalendar.setOnClickListener {
             val intent = Intent(this, User_Calendar::class.java)
             startActivity(intent)
+        }
+
+        btnSignOut.setOnClickListener {
+            // Sign out the current user
+            auth.signOut()
+
+            // Redirect the user to the login or sign-in activity
+            val intent = Intent(this, LoginPage::class.java)
+            // Make sure the user cannot navigate back to the dashboard using the back button
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
         }
 
     }

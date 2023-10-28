@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.PopupWindow
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,6 +29,7 @@ class User_SellerProfileView : AppCompatActivity() {
     private lateinit var sellerAddress : ImageView
     private lateinit var sellerName : TextView
     private lateinit var sellerBio : TextView
+    private lateinit var btnFollow : AppCompatButton
 
     private lateinit var btnMore : TextView
     private lateinit var recyclerView: RecyclerView
@@ -35,6 +37,8 @@ class User_SellerProfileView : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private var database = Firebase.firestore
+    private var isFollowing: Boolean = false // track follow status
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +50,7 @@ class User_SellerProfileView : AppCompatActivity() {
         sellerAddress = findViewById(R.id.sellerProfile_sellerAddress)
         sellerName = findViewById(R.id.sellerProfile_sellerName)
         sellerBio = findViewById(R.id.sellerProfile_sellerDesc)
+        btnFollow = findViewById(R.id.btnFollow)
 
         btnMore = findViewById(R.id.sellerProfile_yourItemsMoreText)
         recyclerView = findViewById(R.id.sellerProfile_yourItemsRecyclerView)
@@ -54,6 +59,7 @@ class User_SellerProfileView : AppCompatActivity() {
         database = FirebaseFirestore.getInstance()
 
         val sellerId = intent.getStringExtra("sellerId").toString()
+        auth = FirebaseAuth.getInstance()
 
         if (sellerId != null){
             database.collection("sellers").document(sellerId).get()
@@ -104,6 +110,10 @@ class User_SellerProfileView : AppCompatActivity() {
                 intent.putExtra("sellerId", sellerId)
                 startActivity(intent)
             }
+
+            btnFollow.setOnClickListener{
+                followSeller()
+            }
         }
 
     }
@@ -136,5 +146,47 @@ class User_SellerProfileView : AppCompatActivity() {
         imageView.getLocationOnScreen(location)
         popupWindow.showAtLocation(imageView, Gravity.NO_GRAVITY, location[0] - popupWindow.width, location[1] + imageView.height)
 
+    }
+
+
+    private fun followSeller() {
+        val sellerId = intent.getStringExtra("sellerId").toString()
+        val currentUser = auth.currentUser
+        val uId = currentUser?.uid
+
+        if (uId != null) {
+            val followerMap = mapOf(
+                "sellerId" to sellerId,
+                "userId" to uId
+            )
+
+            if (isFollowing) {
+                database.collection("userFollowingsByUserId").document(uId).collection("followings").document(sellerId).delete()
+                database.collection("sellerFollowersBySellerId").document(sellerId).collection("followers").document(uId).delete()
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Unfollowed the seller successfully", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener { err ->
+                        Toast.makeText(this, "Error unfollowing the seller: ${err.message}", Toast.LENGTH_SHORT).show()
+                    }
+                // Update the UI
+                isFollowing = false
+                btnFollow.text = "Follow"
+
+            } else {
+                database.collection("sellerFollowersBySellerId").document(sellerId).collection("followers").document(uId).set(followerMap)
+                database.collection("userFollowingsByUserId").document(uId).collection("followings").document(sellerId).set(followerMap)
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Followed the seller successfully", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener { err ->
+                        Toast.makeText(this, "Error following the seller: ${err.message}", Toast.LENGTH_SHORT).show()
+                    }
+
+                // Update the UI
+                isFollowing = true
+                btnFollow.text = "Unfollow"
+            }
+        }
     }
 }

@@ -203,6 +203,7 @@ class AddEvent : AppCompatActivity() {
                                 .set(eventMap)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show()
+                                    finish()
                                 }
                                 .addOnFailureListener {err ->
                                     Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()

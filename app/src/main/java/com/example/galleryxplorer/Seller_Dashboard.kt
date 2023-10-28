@@ -17,6 +17,7 @@ class Seller_Dashboard : AppCompatActivity() {
     private lateinit var btnYourProfile: AppCompatButton
     private lateinit var btnYourEvents: AppCompatButton
     private lateinit var btnCalendar: AppCompatButton
+    private lateinit var btnSignOut: AppCompatButton
     private lateinit var sellerName: TextView
 
     private lateinit var auth: FirebaseAuth
@@ -32,6 +33,7 @@ class Seller_Dashboard : AppCompatActivity() {
         btnYourProfile = findViewById(R.id.btn_your_profile)
         btnYourEvents = findViewById(R.id.btn_your_events)
         btnCalendar = findViewById(R.id.btn_calender)
+        btnSignOut = findViewById(R.id.btn_signOut)
 
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
@@ -66,6 +68,18 @@ class Seller_Dashboard : AppCompatActivity() {
         btnCalendar.setOnClickListener {
             val intent = Intent(this, User_Calendar::class.java)
             startActivity(intent)
+        }
+
+        btnSignOut.setOnClickListener {
+            // Sign out the current user
+            auth.signOut()
+
+            // Redirect the user to the login or sign-in activity
+            val intent = Intent(this, LoginPage::class.java)
+            // Make sure the user cannot navigate back to the dashboard using the back button
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
         }
 
     }

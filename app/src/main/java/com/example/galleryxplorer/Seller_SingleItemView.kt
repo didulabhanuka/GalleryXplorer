@@ -137,6 +137,7 @@ class Seller_SingleItemView : AppCompatActivity() {
             .addOnSuccessListener {
                 val intent = Intent(this, Seller_YourItems::class.java)
                 startActivity(intent)
+                finish()
             }
             .addOnFailureListener { e ->
                 // Handle the error if the deletion fails

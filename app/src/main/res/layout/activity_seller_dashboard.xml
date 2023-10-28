@@ -137,6 +137,20 @@
             android:drawableTint="@color/black"
             android:paddingTop="10dp" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_signOut"
+            style="@style/ButtonGreen"
+            android:layout_marginTop="20dp"
+            android:layout_width="150dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_columnWeight="1"
+            android:layout_row="4"
+            android:text="sign out"
+            android:drawableTop="@drawable/baseline_logout_24"
+            android:drawableTint="@color/black"
+            android:paddingTop="10dp" />
+
     </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

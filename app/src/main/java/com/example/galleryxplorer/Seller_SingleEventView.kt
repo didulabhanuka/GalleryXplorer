@@ -123,6 +123,7 @@ class Seller_SingleEventView : AppCompatActivity() {
             .addOnSuccessListener {
                 val intent = Intent(this, Seller_YourEvents::class.java)
                 startActivity(intent)
+                finish()
             }
             .addOnFailureListener { e ->
                 // Handle the error if the deletion fails

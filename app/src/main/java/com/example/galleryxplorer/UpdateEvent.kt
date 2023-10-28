@@ -218,9 +218,7 @@ class UpdateEvent : AppCompatActivity() {
                         .set(updatedEventMap)
                         .addOnSuccessListener {
                             Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show()
-
-                            Log.d("MyTag", "Debug message: eventDate.text.toString() = ${eventDate.text.toString()}")
-
+                            finish()
                         }
                         .addOnFailureListener {err ->
                             Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
