@@ -18,7 +18,6 @@ class Seller_Dashboard : AppCompatActivity() {
     private lateinit var btnYourEvents: AppCompatButton
     private lateinit var btnCalendar: AppCompatButton
     private lateinit var btnSignOut: AppCompatButton
-    private lateinit var sellerName: TextView
 
     private lateinit var btnYourAuctionItems: AppCompatButton
     private lateinit var btnYourClassItems: AppCompatButton
