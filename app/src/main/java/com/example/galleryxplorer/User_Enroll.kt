@@ -19,7 +19,6 @@ class User_Enroll : AppCompatActivity() {
 
     private lateinit var itemName: EditText
     private lateinit var itemMedium: EditText
-    private lateinit var itemSubject: EditText
     private lateinit var itemYear: EditText
     private lateinit var itemSize: EditText
     private lateinit var btnAddItem: AppCompatButton
@@ -35,7 +34,6 @@ class User_Enroll : AppCompatActivity() {
 
         itemName = findViewById(R.id.et_item_name)
         itemMedium = findViewById(R.id.et_item_medium)
-        itemSubject = findViewById(R.id.et_item_subject)
         itemYear = findViewById(R.id.et_item_year)
         itemSize = findViewById(R.id.et_item_size)
         btnAddItem = findViewById(R.id.btn_add_item)
@@ -76,18 +74,16 @@ class User_Enroll : AppCompatActivity() {
             getSellerName(uId) { sellerName ->
                 val iName = itemName.text.toString()
                 val iMedium = itemMedium.text.toString()
-                val iSubject = itemSubject.text.toString()
                 val iYear = itemYear.text.toString()
                 val iSize = itemSize.text.toString()
 
-                if (iName.isNotEmpty() && iMedium.isNotEmpty() && iSubject.isNotEmpty() && iYear.isNotEmpty() && iSize.isNotEmpty()) {
+                if (iName.isNotEmpty() && iMedium.isNotEmpty() && iYear.isNotEmpty() && iSize.isNotEmpty()) {
                     val sellerMap = hashMapOf(
                         "sellerId" to uId,
                         "randomId" to randomId,
                         "sellerName" to sellerName,
                         "itemName" to iName,
                         "itemMedium" to iMedium,
-                        "itemSubject" to iSubject,
                         "itemYear" to iYear,
                         "itemSize" to iSize,
                         "urls" to uploadedImageUrls
