@@ -28,9 +28,12 @@ class Seller_SellerProfile : AppCompatActivity() {
     private lateinit var sellerName : TextView
     private lateinit var sellerBio : TextView
 
-    private lateinit var btnMore : TextView
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var btnMoreItems : TextView
+    private lateinit var btnMoreClasses : TextView
+    private lateinit var recyclerViewItems: RecyclerView
+    private lateinit var recyclerViewClasses: RecyclerView
     private lateinit var profileItemList: ArrayList<YourItems>
+    private lateinit var profileClassList: ArrayList<YourClasses>
 
     private lateinit var auth: FirebaseAuth
     private var database = Firebase.firestore
@@ -45,11 +48,15 @@ class Seller_SellerProfile : AppCompatActivity() {
         sellerName = findViewById(R.id.sellerProfile_sellerName)
         sellerBio = findViewById(R.id.sellerProfile_sellerDesc)
 
-        btnMore = findViewById(R.id.sellerProfile_yourItemsMoreText)
-        recyclerView = findViewById(R.id.sellerProfile_yourItemsRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        btnMoreItems = findViewById(R.id.sellerProfile_yourItemsMoreText)
+        btnMoreClasses = findViewById(R.id.sellerProfile_yourClassesMoreText)
+        recyclerViewItems = findViewById(R.id.sellerProfile_yourItemsRecyclerView)
+        recyclerViewItems.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         profileItemList = arrayListOf()
-        database = FirebaseFirestore.getInstance()
+
+        recyclerViewClasses = findViewById(R.id.sellerProfile_yourClassesRecyclerView)
+        recyclerViewClasses.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        profileClassList = arrayListOf()
 
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
@@ -103,9 +110,36 @@ class Seller_SellerProfile : AppCompatActivity() {
                 val intent = Intent(this, Seller_YourItems::class.java)
                 startActivity(intent)
             }
-        }
 
+            // Load Classes
+            database.collection("sellerClassesBySellerID").document(uId).collection("sellerClasses").get()
+                .addOnSuccessListener {
+                    for (data in it.documents){
+                        val yourClasses: YourClasses? = data.toObject(YourClasses::class.java)
+                        if(yourClasses != null){
+                            profileClassList.add(yourClasses)
+                            Log.d("Firestore", "Added class: ${yourClasses.itemName}")
+                        }
+                    }
+                    recyclerViewClasses.adapter = ProfileAllClassesAdapter(profileClassList, this)
+                    Toast.makeText(this, "Classes Loaded", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
+                }
+
+            btnMoreItems.setOnClickListener {
+                val intent = Intent(this, Seller_YourItems::class.java)
+                startActivity(intent)
+            }
+
+            btnMoreClasses.setOnClickListener {
+                val intent = Intent(this, Seller_YourClasses::class.java)
+                startActivity(intent)
+            }
+        }
     }
+
     private fun showPopupMessage(imageView: ImageView, message: String) {
         val popupView = LayoutInflater.from(this).inflate(R.layout.popup_message, null)
         val messageTextView = popupView.findViewById<TextView>(R.id.messageTextView)

@@ -29,14 +29,14 @@ class SignUpPage : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        val fullName : EditText = findViewById(R.id.et_fullname)
-        val email : EditText = findViewById(R.id.et_email)
-        val contactNumber : EditText = findViewById(R.id.et_contact)
-        val password : EditText = findViewById(R.id.et_password)
-        val confirmPassword : EditText = findViewById(R.id.et_confirm_password)
+        val fullName : EditText = findViewById(R.id.et_item_name)
+        val email : EditText = findViewById(R.id.et_item_price)
+        val contactNumber : EditText = findViewById(R.id.et_item_quantity)
+        val password : EditText = findViewById(R.id.et_item_description)
+        val confirmPassword : EditText = findViewById(R.id.et_signIn_confirm_password)
         val signUpBtn : AppCompatButton = findViewById(R.id.btn_register)
-        val passwordLayout : TextInputLayout = findViewById(R.id.til_password)
-        val confirmPasswordLayout : TextInputLayout = findViewById(R.id.til_confirm_password)
+        val passwordLayout : TextInputLayout = findViewById(R.id.til_item_description)
+        val confirmPasswordLayout : TextInputLayout = findViewById(R.id.til_signIn_confirm_password)
         val loginText : TextView = findViewById(R.id.tv_have_account_login)
 
         signUpBtn.setOnClickListener {

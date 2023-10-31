@@ -31,6 +31,70 @@
             android:exported="false" />
         <activity
             android:name=".Seller_SingleEventView"
+            android:name=".Seller_YourBids"
+            android:exported="false" />
+        <activity
+            android:name=".User_Bid"
+            android:exported="false" />
+        <activity
+            android:name=".Buyer_Bid"
+            android:exported="false" />
+        <activity
+            android:name=".Seller_SingleEnrollView"
+            android:exported="false" />
+        <activity
+            android:name=".Seller_YourEnrolls"
+            android:exported="false" />
+        <activity
+            android:name=".User_Enroll"
+            android:exported="false" />
+        <activity
+            android:name=".Buyer_SingleAuctionView"
+            android:exported="false" />
+        <activity
+            android:name=".User_AllClasses"
+            android:exported="false" />
+        <activity
+            android:name=".User_AllAuctions"
+            android:exported="false" />
+        <activity
+            android:name=".Buyer_SingleClassView"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateClass"
+            android:exported="false" />
+        <activity
+            android:name=".Seller_SingleClassView"
+            android:exported="false" />
+        <activity
+            android:name=".AllClasses"
+            android:exported="false" />
+        <activity
+            android:name=".Seller_YourClasses"
+            android:exported="false" />
+        <activity
+            android:name=".AddClass"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateAuction"
+            android:exported="false" />
+        <activity
+            android:name=".AllAuctions"
+            android:exported="false" />
+        <activity
+            android:name=".Seller_SingleAuctionView"
+            android:exported="false" />
+        <activity
+            android:name=".YourAuctionsAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".YourAuctions"
+            android:exported="false" />
+        <activity
+            android:name=".Seller_YourAuctions"
+            android:exported="false" />
+        <activity
+            android:name=".AddAuction"
             android:exported="false" />
         <activity
             android:name=".Seller_SellerProfile"

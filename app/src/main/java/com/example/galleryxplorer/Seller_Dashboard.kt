@@ -20,6 +20,11 @@ class Seller_Dashboard : AppCompatActivity() {
     private lateinit var btnSignOut: AppCompatButton
     private lateinit var sellerName: TextView
 
+    private lateinit var btnYourAuctionItems: AppCompatButton
+    private lateinit var btnYourClassItems: AppCompatButton
+    private lateinit var sellerName: TextView
+
+
     private lateinit var auth: FirebaseAuth
     private var database = Firebase.firestore
 
@@ -34,6 +39,9 @@ class Seller_Dashboard : AppCompatActivity() {
         btnYourEvents = findViewById(R.id.btn_your_events)
         btnCalendar = findViewById(R.id.btn_calender)
         btnSignOut = findViewById(R.id.btn_signOut)
+        btnYourAuctionItems = findViewById(R.id.btn_your_auction_items)
+        btnYourClassItems = findViewById(R.id.btn_your_class_items)
+
 
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
@@ -80,6 +88,16 @@ class Seller_Dashboard : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
+        }
+
+        btnYourAuctionItems.setOnClickListener {
+            val intent = Intent(this, Seller_YourAuctions::class.java)
+            startActivity(intent)
+        }
+
+        btnYourClassItems.setOnClickListener {
+            val intent = Intent(this, Seller_YourClasses::class.java)
+            startActivity(intent)
         }
 
     }

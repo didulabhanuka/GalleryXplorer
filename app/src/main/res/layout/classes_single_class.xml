@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/background_color"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/classes_singleClass_mainImage"
+        android:layout_width="168dp"
+        android:layout_height="168dp"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/classes_singleClass_secondImage"
+        android:layout_width="168dp"
+        android:layout_height="168dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/classes_singleClass_thirdImage"
+        android:layout_width="168dp"
+        android:layout_height="168dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/classes_singleClass_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textAllCaps="true"
+        android:text="Name"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/classes_singleClass_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:text="Price"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textColor="@color/elements_color"
+        android:text="VIEW"
+        android:textSize="16sp"
+        android:padding="1dp" />
+
+    <TextView
+        android:id="@+id/classes_singleClass_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_sellerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/classes_singleClass_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/classes_singleClass_sellerId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/classes_singleClass_randomId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</LinearLayout>
