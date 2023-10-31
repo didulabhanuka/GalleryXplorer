@@ -31,16 +31,12 @@
             android:exported="false" />
         <activity
             android:name=".Seller_SingleEventView"
+            android:exported="false" />
+        <activity
             android:name=".Seller_YourBids"
             android:exported="false" />
         <activity
             android:name=".User_Bid"
-            android:exported="false" />
-        <activity
-            android:name=".Buyer_Bid"
-            android:exported="false" />
-        <activity
-            android:name=".Seller_SingleEnrollView"
             android:exported="false" />
         <activity
             android:name=".Seller_YourEnrolls"
