@@ -97,7 +97,7 @@ class Seller_SellerProfile : AppCompatActivity() {
 
                         }
                     }
-                    recyclerView.adapter = ProfileAllItemsAdapter(profileItemList, this)
+                    recyclerViewItems.adapter = ProfileAllItemsAdapter(profileItemList, this)
                     Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
 
                 }
@@ -106,7 +106,7 @@ class Seller_SellerProfile : AppCompatActivity() {
 
                 }
 
-            btnMore.setOnClickListener {
+            btnMoreItems.setOnClickListener {
                 val intent = Intent(this, Seller_YourItems::class.java)
                 startActivity(intent)
             }
