@@ -17,6 +17,7 @@ import com.google.firebase.ktx.Firebase
 
 class Seller_YourAuctions : AppCompatActivity() {
     private lateinit var btnAddAuction: AppCompatButton
+    private lateinit var btnBidAuction: AppCompatButton
     private lateinit var recyclerView: RecyclerView
     private lateinit var sellerAuctionList: ArrayList<YourAuctions>
     private lateinit var auth: FirebaseAuth
@@ -28,6 +29,7 @@ class Seller_YourAuctions : AppCompatActivity() {
         setContentView(R.layout.activity_seller_your_auctions)
 
         btnAddAuction = findViewById(R.id.btn_your_auctions_addNewAuction)
+        btnBidAuction = findViewById(R.id.btn_your_auctions_viewbid)
 
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
@@ -59,6 +61,11 @@ class Seller_YourAuctions : AppCompatActivity() {
 
         btnAddAuction.setOnClickListener {
             val intent = Intent(this, AddAuction::class.java)
+            startActivity(intent)
+        }
+
+        btnBidAuction.setOnClickListener {
+            val intent = Intent(this, Seller_YourBids::class.java)
             startActivity(intent)
         }
     }
