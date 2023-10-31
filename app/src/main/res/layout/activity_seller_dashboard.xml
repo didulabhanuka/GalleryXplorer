@@ -66,7 +66,7 @@
                 android:text="your items" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_your_classes"
+                android:id="@+id/btn_your_class_items"
                 style="@style/ButtonGreen"
                 android:layout_width="150dp"
                 android:layout_height="110dp"
