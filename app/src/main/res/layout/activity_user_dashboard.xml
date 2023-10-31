@@ -105,7 +105,7 @@
                 android:text="events" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_user_auction_items"
+                android:id="@+id/btn_user_auctions"
                 style="@style/ButtonGreen"
                 android:layout_width="150dp"
                 android:layout_height="110dp"
