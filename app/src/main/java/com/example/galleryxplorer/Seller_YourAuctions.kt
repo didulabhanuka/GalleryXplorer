@@ -29,7 +29,7 @@ class Seller_YourAuctions : AppCompatActivity() {
         setContentView(R.layout.activity_seller_your_auctions)
 
         btnAddAuction = findViewById(R.id.btn_your_auctions_addNewAuction)
-        btnBidAuction = findViewById(R.id.btn_your_auctions_addNewAuction)
+        btnBidAuction = findViewById(R.id.btn_your_auctions_viewbid)
 
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
@@ -63,6 +63,7 @@ class Seller_YourAuctions : AppCompatActivity() {
             val intent = Intent(this, AddAuction::class.java)
             startActivity(intent)
         }
+
         btnBidAuction.setOnClickListener {
             val intent = Intent(this, Seller_YourBids::class.java)
             startActivity(intent)
